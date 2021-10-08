@@ -1,0 +1,66 @@
+{
+  "name": "root",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "14"
+  },
+  "scripts": {
+    "start": "yarn workspace app start",
+    "build": "lerna run build",
+    "tsc": "tsc",
+    "clean": "backstage-cli clean && lerna run clean",
+    "diff": "lerna run diff --",
+    "test": "lerna run test --since origin/master -- --coverage",
+    "test:all": "lerna run test -- --coverage",
+    "lint": "lerna run lint --since origin/master --",
+    "lint:all": "lerna run lint --",
+    "create-plugin": "backstage-cli create-plugin",
+    "remove-plugin": "backstage-cli remove-plugin"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*",
+      "plugins/*"
+    ]
+  },
+  "devDependencies": {
+    "@backstage/cli": "^0.1.1-alpha.18",
+    "@spotify/prettier-config": "^7.0.0",
+    "lerna": "^3.20.2",
+    "nodemon": "^2.0.12",
+    "prettier": "^1.19.1"
+  },
+  "resolutions": {
+    "esbuild": "0.6.3"
+  },
+  "prettier": "@spotify/prettier-config",
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {
+    "algoliasearch": "^4.8.4",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^5.0.2",
+    "cookie": "^0.4.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "image-to-base64": "^2.2.0",
+    "mongoose": "^5.13.4",
+    "multer": "^1.4.2",
+    "react-cookie": "^4.0.3",
+    "react-icons": "^4.2.0",
+    "react-instantsearch-dom": "^6.8.3",
+    "react-search": "^2.1.1",
+    "react-search-field": "^1.2.0",
+    "sweetalert2": "^10.5.0",
+    "uuid": "^8.3.2"
+  }
+}
